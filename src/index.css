@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&display=swap');
+
+:root {
+  font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #18241e;
+  background: #f6f3eb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --navy: #0b2a45;
+  --navy-deep: #061d31;
+  --green: #3e5b39;
+  --green-light: #6e8260;
+  --cream: #f6f3eb;
+  --paper: #fffdf8;
+  --gold: #d6a34a;
+  --ink: #18241e;
+  --muted: #667169;
+  --line: #d9ddd4;
+  --serif: 'Newsreader', Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: var(--cream); }
+button, input { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+button { cursor: pointer; }
+::selection { background: #d7dfcf; color: var(--navy-deep); }

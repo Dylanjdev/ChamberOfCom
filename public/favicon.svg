@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#0b2a45"/>
+  <path d="M9 43c10-9 17-7 25-13 7-5 13-5 21-12v25H9Z" fill="#6e8260"/>
+  <path d="M9 46c9-5 19-5 28-10 6-3 11-4 18-4v14H9Z" fill="#d6a34a" opacity=".7"/>
+  <text x="32" y="37" text-anchor="middle" fill="#fffdf8" font-family="Georgia,serif" font-size="27" font-weight="700">LC</text>
+</svg>
