@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import logo from './assets/chamberlogo-128.webp'
+import heroImage from './assets/lee-county-hero.webp'
 import './App.css'
 
 const Icon = ({ name, size = 20 }) => {
@@ -95,14 +96,12 @@ function App() {
         <section className="hero-section" id="home">
           <img
             className="hero-image"
-            src="/lee-county-hero-1672.webp"
-            srcSet="/lee-county-hero-960.webp 960w, /lee-county-hero-1672.webp 1672w"
-            sizes="100vw"
-            width="1672"
-            height="941"
+            src={heroImage}
+            width="1166"
+            height="871"
             fetchPriority="high"
             decoding="async"
-            alt="Green Appalachian ridges overlooking a sunlit Lee County valley"
+            alt="A pink sunset over the Appalachian mountains in Lee County"
           />
           <div className="hero-overlay" />
           <div className="hero-content content-wrap">
