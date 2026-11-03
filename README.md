@@ -11,4 +11,4 @@ npm run dev
 
 ## Live site
 
-https://dylanjdev.github.io/ChamberOfCom/
+https://wildernessroadchamber.com/
