@@ -71,8 +71,8 @@ function App() {
 
       <aside className="status-bar" aria-label="Chamber status">
         <span className="status-dot" aria-hidden="true" />
-        <strong>Relaunch in progress</strong>
-        <span>Programs and membership opportunities are taking shape now.</span>
+        <strong>Next meeting</strong>
+        <a href="#updates"><time dateTime="2026-11-17T18:00:00-05:00">Tuesday, Nov. 17 at 6 PM</time> · Cumberland Market</a>
       </aside>
 
       <header className="site-header">
@@ -86,7 +86,7 @@ function App() {
           <a href="#about" onClick={closeMenu}>About</a>
           <a href="#current" onClick={closeMenu}>Current state</a>
           <a href="#focus" onClick={closeMenu}>Our focus</a>
-          <a href="#organizing" onClick={closeMenu}>Who’s organizing</a>
+          <a href="#organizing" onClick={closeMenu}>Community effort</a>
           <a href="#updates" onClick={closeMenu}>Updates</a>
           <a className="button button-small" href="#involved" onClick={closeMenu}>Get involved <Icon name="arrow" size={16} /></a>
         </nav>
@@ -176,11 +176,11 @@ function App() {
 
         <section className="organizing-section section-pad" id="organizing">
           <div className="content-wrap organizing-grid">
-            <div className="organizer-card">
-              <p className="micro-label">Helping organize the relaunch</p>
-              <div className="organizer-avatar" aria-hidden="true">HH</div>
-              <h3>Heather Hitchler</h3>
-              <p>Heather has been bringing local businesses into the conversation and helping rebuild interest in a stronger, more connected business community.</p>
+            <div className="community-card">
+              <p className="micro-label">A shared local effort</p>
+              <div className="community-icon" aria-hidden="true"><Icon name="network" size={38} /></div>
+              <h3>Built by Lee County businesses</h3>
+              <p>The Chamber’s relaunch is a collaborative effort shaped by local businesses, entrepreneurs, community partners, and supporters from across Lee County.</p>
             </div>
             <div className="organizing-copy">
               <p className="eyebrow">A community-shaped next chapter</p>
@@ -216,19 +216,69 @@ function App() {
         </section>
 
         <section className="updates-section section-pad" id="updates">
-          <div className="content-wrap updates-card">
-            <div className="updates-copy">
-              <p className="eyebrow light">Stay connected</p>
-              <h2>More is on<br /><em>the way.</em></h2>
-              <p>Check back for membership information, upcoming gatherings, business features, and new ways to participate as the Wilderness Road Chamber of Commerce moves forward.</p>
-              <a className="button button-cream" href="https://www.linkedin.com/in/networkwonderwoman" target="_blank" rel="noopener noreferrer">Connect with Heather <span className="sr-only"> (opens in a new tab)</span><Icon name="arrow" size={18} /></a>
+          <div className="content-wrap">
+            <header className="updates-heading">
+              <div>
+                <p className="eyebrow">Latest chamber update</p>
+                <h2>Connections are growing.<br /><em>Here’s what’s next.</em></h2>
+              </div>
+              <p>Thank you to everyone participating, sharing ideas, and helping build a stronger network for Lee County businesses.</p>
+            </header>
+
+            <article className="meeting-card">
+              <div className="meeting-date" aria-hidden="true">
+                <span>Nov</span>
+                <strong>17</strong>
+                <small>Tuesday</small>
+              </div>
+              <div className="meeting-details">
+                <p className="micro-label">Next Chamber meeting</p>
+                <h3><time dateTime="2026-11-17T18:00:00-05:00">Tuesday, November 17 at 6:00 PM</time></h3>
+                <p>All Lee County businesses are welcome.</p>
+              </div>
+              <div className="meeting-place">
+                <p className="micro-label">Location</p>
+                <h4>Cumberland Market</h4>
+                <address>25447 Wilderness Road<br />Jonesville, Virginia</address>
+              </div>
+            </article>
+
+            <div className="update-grid">
+              <article>
+                <span className="update-number">01</span>
+                <p className="micro-label">Chamber Connection recap</p>
+                <h3>Thank you for painting outside the lines with us.</h3>
+                <p>Thank you to everyone who joined the Chamber Connection at Painting Outside The Lines Studio in Pennington Gap. Special thanks to Stacy Lynn for hosting and to MJ Holden of People Inc. Financial Services for sharing loan, grant, and training resources for local businesses.</p>
+              </article>
+              <article>
+                <span className="update-number">02</span>
+                <p className="micro-label">Local business spotlight</p>
+                <h3>Add your logo to the “We Grow Our Own” tree.</h3>
+                <p>Local businesses are invited to be represented on the UNIfication Tree at the Southwest Virginia Museum Festival of Trees in Big Stone Gap, running November 15 through December 31.</p>
+              </article>
+              <article>
+                <span className="update-number">03</span>
+                <p className="micro-label">Help shape the Chamber</p>
+                <h3>Draft bylaws are ready for community input.</h3>
+                <p>Lee County businesses and community supporters are encouraged to review the Chamber’s draft bylaws and share ideas as the organization takes shape.</p>
+              </article>
+              <article>
+                <span className="update-number">04</span>
+                <p className="micro-label">December preview</p>
+                <h3>Connecting with Lee County’s future business leaders.</h3>
+                <p>The December meeting will be held at the Lee County Career and Technical Center and will include an opportunity to connect with FBLA. Additional details are coming soon.</p>
+              </article>
             </div>
-            <div className="updates-detail">
-              <Icon name="compass" size={36} />
-              <p className="micro-label">Current status</p>
-              <h3>Programs are being developed now.</h3>
-              <p>Official Chamber contact details and membership opportunities will be shared once they are confirmed.</p>
-              <div className="status-note"><span className="status-dot" aria-hidden="true" /> Relaunch underway</div>
+
+            <div className="update-actions">
+              <div>
+                <p className="micro-label">Forms, resources &amp; updates</p>
+                <p>Open the original announcement for the shared documents and forms, or connect with the Chamber’s Facebook community for ongoing updates.</p>
+              </div>
+              <div className="update-links">
+                <a className="button" href="https://www.facebook.com/share/p/1F3DqjgMnS/" target="_blank" rel="noopener noreferrer">View post and forms <span className="sr-only"> (opens in a new tab)</span><Icon name="arrow" size={18} /></a>
+                <a className="text-link" href="https://www.facebook.com/share/g/1ceo7rcEs6/" target="_blank" rel="noopener noreferrer">Visit Chamber Facebook <span className="sr-only"> (opens in a new tab)</span><Icon name="arrow" size={17} /></a>
+              </div>
             </div>
           </div>
         </section>
@@ -238,7 +288,7 @@ function App() {
         <div className="content-wrap footer-main">
           <Brand footer />
           <p>Connecting businesses. Strengthening community. Building what comes next.</p>
-          <nav aria-label="Footer navigation"><a href="#about">About</a><a href="#current">Current state</a><a href="#focus">Our focus</a><a href="#involved">Get involved</a><a href="#updates">Updates</a></nav>
+          <nav aria-label="Footer navigation"><a href="#about">About</a><a href="#current">Current state</a><a href="#focus">Our focus</a><a href="#involved">Get involved</a><a href="#updates">Updates</a><a href="https://www.facebook.com/share/g/1ceo7rcEs6/" target="_blank" rel="noopener noreferrer">Facebook<span className="sr-only"> (opens in a new tab)</span></a></nav>
         </div>
         <div className="content-wrap footer-bottom">
           <span>© 2026 Wilderness Road Chamber of Commerce</span>
