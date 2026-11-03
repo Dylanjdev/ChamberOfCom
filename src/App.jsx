@@ -1,6 +1,5 @@
-import { useState } from 'react'
-import logo from './assets/chamberlogo.webp'
-import heroLandscape from './assets/lee-county-hero.jpg'
+import { useEffect, useState } from 'react'
+import logo from './assets/chamberlogo-128.webp'
 import './App.css'
 
 const Icon = ({ name, size = 20 }) => {
@@ -14,7 +13,6 @@ const Icon = ({ name, size = 20 }) => {
     lightbulb: <><path d="M9 18h6M10 22h4"/><path d="M8.5 14.5A6 6 0 1 1 15.5 14.5c-.9.7-1.5 1.7-1.5 2.5h-4c0-.8-.6-1.8-1.5-2.5Z"/></>,
     menu: <path d="M4 7h16M4 12h16M4 17h16"/>,
     network: <><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><path d="m10.5 7.6-4 8M13.5 7.6l4 8M8 19h8"/></>,
-    users: <><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></>,
   }
 
   return (
@@ -45,9 +43,10 @@ const waysToTakePart = [
 
 function Brand({ footer = false }) {
   return (
-    <a className={`brand${footer ? ' footer-brand' : ''}`} href="#home" aria-label="Wilderness Road Chamber of Commerce home">
-      <span className="brand-mark"><img src={logo} alt="" /></span>
+    <a className={`brand${footer ? ' footer-brand' : ''}`} href="#home">
+      <span className="brand-mark"><img src={logo} alt="" width="128" height="128" decoding="async" loading={footer ? 'lazy' : 'eager'} /></span>
       <span className="brand-copy"><b>Wilderness Road</b><small>Chamber of Commerce</small></span>
+      <span className="sr-only"> home</span>
     </a>
   )
 }
@@ -56,22 +55,33 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const closeMenu = () => setMenuOpen(false)
 
+  useEffect(() => {
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') setMenuOpen(false)
+    }
+
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [])
+
   return (
     <div className="site-shell">
-      <div className="status-bar">
+      <a className="skip-link" href="#main-content">Skip to main content</a>
+
+      <aside className="status-bar" aria-label="Chamber status">
         <span className="status-dot" aria-hidden="true" />
         <strong>Relaunch in progress</strong>
         <span>Programs and membership opportunities are taking shape now.</span>
-      </div>
+      </aside>
 
       <header className="site-header">
         <Brand />
 
-        <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Toggle menu">
+        <button className="menu-button" type="button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-controls="primary-navigation" aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}>
           <Icon name={menuOpen ? 'close' : 'menu'} size={24} />
         </button>
 
-        <nav className={menuOpen ? 'primary-nav open' : 'primary-nav'} aria-label="Primary navigation">
+        <nav id="primary-navigation" className={menuOpen ? 'primary-nav open' : 'primary-nav'} aria-label="Primary navigation">
           <a href="#about" onClick={closeMenu}>About</a>
           <a href="#current" onClick={closeMenu}>Current state</a>
           <a href="#focus" onClick={closeMenu}>Our focus</a>
@@ -81,9 +91,19 @@ function App() {
         </nav>
       </header>
 
-      <main>
+      <main id="main-content">
         <section className="hero-section" id="home">
-          <img className="hero-image" src={heroLandscape} alt="Green Appalachian ridges overlooking a sunlit Lee County valley" />
+          <img
+            className="hero-image"
+            src="/lee-county-hero-1672.webp"
+            srcSet="/lee-county-hero-960.webp 960w, /lee-county-hero-1672.webp 1672w"
+            sizes="100vw"
+            width="1672"
+            height="941"
+            fetchPriority="high"
+            decoding="async"
+            alt="Green Appalachian ridges overlooking a sunlit Lee County valley"
+          />
           <div className="hero-overlay" />
           <div className="hero-content content-wrap">
             <p className="eyebrow light">Serving Lee County, Virginia</p>
@@ -172,7 +192,7 @@ function App() {
                 <li><Icon name="check" size={18} /> Gathering ideas and community input</li>
                 <li><Icon name="check" size={18} /> Shaping membership and visibility opportunities</li>
               </ul>
-              <a className="text-link" href="https://cardinalnews.org/2026/08/14/swva-field-notes-4/" target="_blank" rel="noreferrer">Read about the relaunch <Icon name="arrow" size={17} /></a>
+              <a className="text-link" href="https://cardinalnews.org/2026/08/14/swva-field-notes-4/" target="_blank" rel="noopener noreferrer">Read about the relaunch <span className="sr-only"> (opens in a new tab)</span><Icon name="arrow" size={17} /></a>
             </div>
           </div>
         </section>
@@ -202,7 +222,7 @@ function App() {
               <p className="eyebrow light">Stay connected</p>
               <h2>More is on<br /><em>the way.</em></h2>
               <p>Check back for membership information, upcoming gatherings, business features, and new ways to participate as the Wilderness Road Chamber of Commerce moves forward.</p>
-              <a className="button button-cream" href="https://www.linkedin.com/in/networkwonderwoman" target="_blank" rel="noreferrer">Connect with Heather <Icon name="arrow" size={18} /></a>
+              <a className="button button-cream" href="https://www.linkedin.com/in/networkwonderwoman" target="_blank" rel="noopener noreferrer">Connect with Heather <span className="sr-only"> (opens in a new tab)</span><Icon name="arrow" size={18} /></a>
             </div>
             <div className="updates-detail">
               <Icon name="compass" size={36} />
