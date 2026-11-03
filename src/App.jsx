@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import logo from './assets/logo-web.png'
+import logo from './assets/chamberlogo.webp'
 import heroLandscape from './assets/lee-county-hero.jpg'
 import './App.css'
 
